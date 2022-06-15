@@ -1,0 +1,32 @@
+<ion-content>
+  <div class="ion-text-center" style="margin-top: 64px">
+    <h1>Hi, Welcome!</h1>
+  </div>
+  <img src="assets/images/bg-image.jpg" alt="image" />
+  <form [formGroup]="infoGroup" (ngSubmit)="start()">
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input placeholder="Enter your name..."  formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Prefer contact</ion-label>
+      <ion-select placeholder="Prefer Contact"  formControlName="preferContact">
+        <ion-select-option value="email">Email</ion-select-option>
+        <ion-select-option value="phone">Phone Number</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Contact</ion-label>
+      <ion-input placeholder="Enter your contact..." formControlName="contactData"></ion-input>
+    </ion-item>
+    <ion-button
+      (click)="start()"
+      expand="full"
+      fill="outline"
+      shape="round"
+      style="margin: 30px 100px"
+    >
+      Start
+    </ion-button>
+  </form>
+</ion-content>
