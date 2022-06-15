@@ -44,6 +44,7 @@ export class Tab1Page {
     const info: Info = JSON.parse(localStorage.getItem('info')) || null;
     if (info === null) {
       this.router.navigate(['start']);
+      return;
     }
     const reservations: Reservation[] =
       JSON.parse(localStorage.getItem('reservations')) || [];
@@ -65,6 +66,7 @@ export class Tab1Page {
           : this.smsMessage(info.name, info.contactData),
       duration: 3000,
       position: 'top',
+      color: 'success'
     });
     toast.present();
   }

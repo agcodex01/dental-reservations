@@ -10,10 +10,21 @@ export class Tab3Page implements AfterViewChecked {
     {
       day: 'Monday',
       schedule: '09:10',
+      status: 'cancelled',
+    },
+    {
+      day: 'Wednesday',
+      schedule: '10:00 - 11:00 AM',
+      status: 'confirmed',
+    },
+    {
+      day: 'Friday',
+      schedule: '10:00 - 11:00 AM',
       status: 'done',
     },
   ];
   constructor() {
+
     this.setData();
   }
   ngAfterViewChecked(): void {
@@ -21,7 +32,23 @@ export class Tab3Page implements AfterViewChecked {
   }
 
   setData() {
-    this.reservations = JSON.parse(localStorage.getItem('reservations'))|| [];
+    const data = localStorage.getItem('reservations');
+    if (!data) {
+      localStorage.setItem('reservations', JSON.stringify(this.reservations));
+    }
+
+    this.reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+  }
+  getColor(color: string) {
+    if (color === 'pending') {
+      return 'primary';
+    } else if (color === 'cancelled') {
+      return 'danger';
+    } else if (color === 'confirmed') {
+      return 'warning';
+    } else if (color === 'done') {
+      return 'success';
+    }
   }
 }
 

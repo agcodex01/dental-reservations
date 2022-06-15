@@ -13,7 +13,7 @@
         <h2>{{ reservation.day }}</h2>
         <h3>{{ reservation.schedule }}</h3>
       </ion-label>
-      <ion-badge color="primary" mode="ios"> {{ reservation.status }} </ion-badge>
+      <ion-badge [color]="getColor(reservation.status)" mode="ios"> {{ reservation.status }} </ion-badge>
     </ion-item>
   </ion-list>
 </ion-content>
